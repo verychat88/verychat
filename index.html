@@ -2,47 +2,67 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Very Network Whitepaper</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8" />
+  <title>VeryChat Whitepaper</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/script.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="logo">🔷 Very Network Whitepaper</div>
-    <input type="search" placeholder="Search..." />
-  </header>
-  <div class="container">
-    <aside class="sidebar">
-      <div class="language">🌐 Korean</div>
-      <ul class="menu">
-        <li><a href="#">소개</a></li>
-        <li><a href="#">결제 혁신 & 비전</a></li>
-        <li>
-          <span>Verychat</span>
-          <ul class="submenu">
-            <li><a href="#">초대 보상</a></li>
-            <li><a href="#">열매 보상</a></li>
-            <li><a href="#">채널 보상</a></li>
-            <li><a href="#">채널</a></li>
-            <li><a href="#">그룹챗</a></li>
-            <li><a href="#">온디바이스 Ai</a></li>
-            <li><a href="#">KYC</a></li>
-          </ul>
-        </li>
-        <li><a href="#">토크노믹스</a></li>
-        <li><a href="#">광고 시스템</a></li>
-        <li><a href="#">베리 생태계</a></li>
-        <li><a href="#">메인넷</a></li>
-        <li><a href="#">팀</a></li>
-        <li><a href="#">면책조항</a></li>
-      </ul>
-      <div class="powered">Powered by VeryChat</div>
-    </aside>
-    <main class="content">
-      <h1>소개</h1>
-      <p>베리 네트워크 및 베리챗에 대한 소개를 요약하여 설명 드립니다.</p>
-      <img src="assets/intro.jpg" alt="소개 이미지" class="main-image" />
-    </main>
+  <div class="sidebar">
+    <h2>📘 메뉴</h2>
+    <ul>
+      <li><a href="pages/소개.html">소개</a></li>
+      <li><a href="pages/결제혁신_비전.html">결제 혁신 & 비전</a></li>
+      <li><a href="#" onclick="toggleSubmenu('verychat')">Verychat ▼</a>
+        <ul id="verychat" style="display:none;">
+          <li><a href="pages/verychat/초대보상.html">초대 보상</a></li>
+          <li><a href="pages/verychat/열매보상.html">열매 보상</a></li>
+          <li><a href="pages/verychat/채널보상.html">채널 보상</a></li>
+          <li><a href="pages/verychat/채널.html">채널</a></li>
+          <li><a href="pages/verychat/그룹챗.html">그룹챗</a></li>
+          <li><a href="pages/verychat/온디바이스_Ai.html">온디바이스 Ai</a></li>
+          <li><a href="pages/verychat/KYC.html">KYC</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="toggleSubmenu('tokenomics')">토크노믹스 ▼</a>
+        <ul id="tokenomics" style="display:none;">
+          <li><a href="pages/tokenomics/코인분배.html">코인 분배</a></li>
+          <li><a href="pages/tokenomics/코인배포.html">코인 배포</a></li>
+          <li><a href="pages/tokenomics/광고보상_소각.html">광고 보상 & 소각</a></li>
+          <li><a href="pages/tokenomics/채널스테이킹.html">채널 스테이킹</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="toggleSubmenu('ad_system')">광고 시스템 ▼</a>
+        <ul id="ad_system" style="display:none;">
+          <li><a href="pages/ad_system/메인광고.html">메인광고</a></li>
+          <li><a href="pages/ad_system/채널광고.html">채널광고</a></li>
+          <li><a href="pages/ad_system/베리에드센스.html">베리 에드센스</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="toggleSubmenu('ecosystem')">베리 생태계 ▼</a>
+        <ul id="ecosystem" style="display:none;">
+          <li><a href="pages/ecosystem/그랜트정책.html">그랜트 정책</a></li>
+          <li><a href="pages/ecosystem/생태계디앱리스트.html">생태계 디앱 리스트</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="toggleSubmenu('mainnet')">메인넷(레이어1) ▼</a>
+        <ul id="mainnet" style="display:none;">
+          <li><a href="pages/mainnet/노드보상정책.html">노드 보상 정책</a></li>
+          <li><a href="pages/mainnet/노드구동_Cloud.html">노드구동(Cloud)</a></li>
+          <li><a href="pages/mainnet/노드구동_macOS.html">노드구동(macOS)</a></li>
+          <li><a href="pages/mainnet/노드구동_Windows.html">노드구동(Windows)</a></li>
+        </ul>
+      </li>
+      <li><a href="pages/기타/패스트넷_레이어2.html">패스트넷(레이어2)</a></li>
+      <li><a href="pages/기타/로드맵.html">로드맵</a></li>
+      <li><a href="pages/기타/팀.html">팀</a></li>
+      <li><a href="pages/기타/면책조항.html">면책조항</a></li>
+      <li><a href="pages/기타/링크트리.html">링크트리</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h1>VeryChat Whitepaper에 오신 것을 환영합니다</h1>
+    <p>좌측 메뉴를 클릭하여 내용을 확인해보세요.</p>
   </div>
 </body>
 </html>
