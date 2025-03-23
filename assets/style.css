@@ -2,40 +2,82 @@
 body {
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
-  background-color: #f5f6f7;
+}
+header {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+header .logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+header input[type="search"] {
+  padding: 5px 10px;
+  font-size: 14px;
+  width: 200px;
+}
+.container {
   display: flex;
 }
 .sidebar {
-  width: 240px;
-  background-color: #1e1e1e;
-  color: white;
+  width: 250px;
+  background: #f9f9f9;
   height: 100vh;
   padding: 20px;
+  box-shadow: 1px 0 3px rgba(0,0,0,0.05);
   box-sizing: border-box;
 }
-.sidebar h2 {
-  font-size: 20px;
-  margin-top: 0;
+.sidebar .language {
+  font-size: 14px;
+  margin-bottom: 20px;
 }
-.sidebar ul {
+.sidebar .menu {
   list-style: none;
   padding: 0;
 }
-.sidebar ul li {
-  margin: 10px 0;
+.sidebar .menu > li {
+  margin-bottom: 10px;
 }
-.sidebar ul li a {
-  color: white;
+.sidebar .menu li a, .sidebar .menu li span {
   text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.submenu {
+  margin-top: 5px;
+  margin-left: 15px;
+  list-style: none;
+  padding-left: 10px;
+  border-left: 2px solid #eee;
+}
+.submenu li {
+  margin-bottom: 6px;
+}
+.sidebar .powered {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #999;
 }
 .content {
-  flex-grow: 1;
+  flex: 1;
   padding: 40px;
 }
 .content h1 {
-  color: #333;
+  font-size: 28px;
+  color: #222;
 }
 .content p {
+  font-size: 16px;
+  color: #444;
   line-height: 1.8;
-  color: #555;
+}
+.main-image {
+  margin-top: 20px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
