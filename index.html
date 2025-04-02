@@ -405,10 +405,7 @@ include_once(G5_THEME_PATH.'/head.php');
         <!-- 네비게이션 바 -->
         <nav class="navbar">
           <div class="nav-left">
-            <h2>VERY CHAT</h2>
-          </div>
-          <div class="nav-right">
-            <a href="https://www.verylabs.io/" target="_blank" class="btn-official">베리챗 공식 홈페이지 바로가기</a>
+            <h2>베리챗추천코드:droes</h2>
           </div>
         </nav>
 
@@ -442,7 +439,7 @@ include_once(G5_THEME_PATH.'/head.php');
 
           <!-- 이미지 및 비트코인 가치 관련 메시지 -->
           <div class="bitcoin-info" style="margin-top:20px;">
-            <img src="https://verychat.shop/data/file/test/thumb-f2c4414272c95f559e42a51e25b6c3c7_wLejqJrc_4b9edfe4ca4ddc3b16146132470859c778c4fb08_600x663.jpg" 
+            <img src="http://verychat.shop/data/file/test/thumb-f2c4414272c95f559e42a51e25b6c3c7_wLejqJrc_4b9edfe4ca4ddc3b16146132470859c778c4fb08_600x663.jpg" 
                  alt="비트코인 가치 상승" 
                  style="max-width:100%; height:auto; border-radius:8px;">
             <p style="margin-top:20px; color: #ccc; font-size: 1rem; line-height: 1.5;">
@@ -589,14 +586,3 @@ include_once(G5_THEME_PATH.'/head.php');
         </section>
 
     </div> <!-- #verychat-page 끝 -->
-
-<?php
-if (isset($rb_core['layout']) && $rb_core['layout'] == "") {
-    echo "<div class='no_data' style='border:0px;'><span class='no_data_section_ul1 font-B color-000'>선택된 레이아웃이 없습니다.</span><br>환경설정 패널에서 먼저 레이아웃을 설정해주세요.</div>";
-} else if (isset($rb_core['layout'])) {
-    include_once(G5_THEME_PATH . '/rb.layout/' . $rb_core['layout'] . '/index.php');
-} else {
-    echo "<div class='no_data' style='border:0px;'><span class='no_data_section_ul1 font-B color-000'>레이아웃 설정이 올바르지 않습니다.</span><br>환경설정 패널에서 먼저 레이아웃을 설정해주세요.</div>";
-}
-include_once(G5_THEME_PATH.'/tail.php');
-?> 
