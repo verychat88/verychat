@@ -611,18 +611,6 @@ include_once(G5_THEME_PATH.'/head.php');
   </section>
 </div> <!-- #verychat-page 끝 -->
 
-<?php
-// 레이아웃 설정 부분
-if (isset($rb_core['layout']) && $rb_core['layout'] == "") {
-    echo "<div class='no_data' style='border:0px;'><span class='no_data_section_ul1 font-B color-000'>선택된 레이아웃이 없습니다.</span><br>환경설정 패널에서 먼저 레이아웃을 설정해주세요.</div>";
-} else if (isset($rb_core['layout'])) {
-    include_once(G5_THEME_PATH . '/rb.layout/' . $rb_core['layout'] . '/index.php');
-} else {
-    echo "<div class='no_data' style='border:0px;'><span class='no_data_section_ul1 font-B color-000'>레이아웃 설정이 올바르지 않습니다.</span><br>환경설정 패널에서 먼저 레이아웃을 설정해주세요.</div>";
-}
-include_once(G5_THEME_PATH.'/tail.php');
-?>
-
 <!-- 자바스크립트: 햄버거 메뉴 토글 기능 -->
 <script>
   const hamburgerBtn = document.getElementById('hamburgerBtn');
