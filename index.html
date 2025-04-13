@@ -9,36 +9,42 @@
 <body>
   <button id="loginBtn">Wepin 로그인</button>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      // SDK가 로드될 때까지 대기
-      if (typeof window.Wepin === 'undefined') {
-        console.error('Wepin SDK가 로드되지 않았습니다.');
-        return;
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const waitForWepin = setInterval(() => {
+      if (typeof window.Wepin !== 'undefined') {
+        clearInterval(waitForWepin);
+        runWepin();
       }
+    }, 200);
+  });
 
-      try {
-        // SDK 초기화
-        await window.Wepin.init('82c1a61d6e45f0c580aed1fa2c422287', 'ak_live_M3OBCVipGupiZWOhLbQSLEDB72be3dzBg5nvscrmHjV', {
+  async function runWepin() {
+    try {
+      await window.Wepin.init(
+        '82c1a61d6e45f0c580aed1fa2c422287',
+        'ak_live_M3OBCVipGupiZWOhLbQSLEDB72be3dzBg5nvscrmHjV',
+        {
           type: 'hide',
           defaultLanguage: 'ko',
           defaultCurrency: 'KRW',
           loginProviders: ['google', 'kakao']
-        });
+        }
+      );
 
-        // 로그인 버튼 클릭 이벤트
-        document.getElementById('loginBtn').addEventListener('click', async () => {
-          try {
-            const userInfo = await window.Wepin.login();
-            console.log('로그인 성공:', userInfo);
-          } catch (loginError) {
-            console.error('로그인 실패:', loginError);
-          }
-        });
-      } catch (initError) {
-        console.error('SDK 초기화 실패:', initError);
-      }
-    });
-  </script>
+      document.getElementById('loginBtn').addEventListener('click', async () => {
+        try {
+          const userInfo = await window.Wepin.login();
+          console.log('로그인 성공:', userInfo);
+        } catch (loginError) {
+          console.error('로그인 실패:', loginError);
+        }
+      });
+    } catch (initError) {
+      console.error('SDK 초기화 실패:', initError);
+    }
+  }
+</script>
+
 </body>
 </html>
