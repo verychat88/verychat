@@ -18,21 +18,21 @@
     let userWallet = null;
     let wepinInitialized = false;
 
-    function logError(msg) {
-      console.error(msg);
+    function log(msg) {
       document.getElementById('log').innerText = msg;
+      console.error(msg);
     }
 
-    async function setupWepin() {
-      if (typeof window.Wepin === "undefined") {
-        logError("⚠️ Wepin SDK가 로드되지 않았습니다. 도메인 등록 또는 스크립트 경로를 확인하세요.");
-        return;
+    async function initWepin() {
+      if (typeof window.Wepin === 'undefined') {
+        log("⚠️ Wepin SDK가 아직 로드되지 않았습니다. 잠시 후 다시 시도해 주세요.");
+        return false;
       }
 
       try {
         await window.Wepin.init(
-          '82c1a61d6e45f0c580aed1fa2c422287', // App ID
-          'ak_live_M3OBCVipGupiZWOhLbQSLEDB72be3dzBg5nvscrmHjV', // API Key
+          '82c1a61d6e45f0c580aed1fa2c422287',
+          'ak_live_M3OBCVipGupiZWOhLbQSLEDB72be3dzBg5nvscrmHjV',
           {
             type: 'popup',
             defaultLanguage: 'ko',
@@ -40,20 +40,18 @@
           }
         );
         wepinInitialized = true;
-        console.log("✅ Wepin 초기화 완료");
+        log("✅ Wepin 초기화 완료");
+        return true;
       } catch (e) {
-        logError("❌ Wepin.init() 실패: " + e.message);
+        log("❌ Wepin.init 실패: " + e.message);
+        return false;
       }
     }
 
     document.getElementById('loginBtn').addEventListener('click', async () => {
       if (!wepinInitialized) {
-        await setupWepin();
-      }
-
-      if (!wepinInitialized) {
-        logError("❌ Wepin 초기화 실패. 로그인 불가.");
-        return;
+        const ready = await initWepin();
+        if (!ready) return;
       }
 
       try {
@@ -63,10 +61,10 @@
           alert("지갑 로그인 성공: " + userWallet);
           document.getElementById('tradeBtn').disabled = false;
         } else {
-          alert("지갑 연동 실패");
+          log("지갑 연동 실패");
         }
       } catch (e) {
-        logError("❌ Wepin.connect() 실패: " + e.message);
+        log("❌ Wepin.connect 실패: " + e.message);
       }
     });
 
@@ -80,14 +78,13 @@
           token: 'BERRY'
         });
 
-        console.log("거래 결과:", tx);
         if (tx?.txHash) {
-          alert("성공적으로 100 BERRY 전송 완료! TX: " + tx.txHash);
+          alert("✅ 100 BERRY 전송 성공! TX: " + tx.txHash);
         } else {
           alert("이체 실패 또는 취소됨");
         }
       } catch (e) {
-        logError("❌ Wepin.sendToken() 실패: " + e.message);
+        log("❌ sendToken 실패: " + e.message);
       }
     });
   </script>
