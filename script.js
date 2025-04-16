@@ -1,11 +1,10 @@
 /**
- * 슬라이더(배너) 관련 스크립트
+ * 슬라이더 관련 스크립트
  */
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 let slideInterval; 
 const intervalTime = 4000;
-
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');
 const pauseBtn = document.getElementById('pauseBtn');
@@ -73,13 +72,23 @@ hamburger.addEventListener('click', () => {
 });
 
 /**
- * 견적 요청 폼 제출 이벤트
- * (실제 운영 시 Formspree, Netlify Forms 등 서버리스 솔루션으로 연동하여 droes@naver.com으로 전송)
+ * 모달 (승강기 검사 및 법령 상세내용) 관련 스크립트
  */
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  // 폼 제출 후 이메일 전송 처리 로직(서비스 연동 필요)
-  alert('문의 및 견적 요청이 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
-  contactForm.reset();
+const openLawModalBtn = document.getElementById('openLawModal');
+const lawModal = document.getElementById('lawModal');
+const closeLawModalBtn = document.getElementById('closeLawModal');
+
+openLawModalBtn.addEventListener('click', () => {
+  lawModal.style.display = 'flex';
+});
+
+closeLawModalBtn.addEventListener('click', () => {
+  lawModal.style.display = 'none';
+});
+
+// 모달 영역 외부 클릭 시 닫기
+window.addEventListener('click', (e) => {
+  if (e.target === lawModal) {
+    lawModal.style.display = 'none';
+  }
 });
