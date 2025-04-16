@@ -26,9 +26,9 @@ body {
   --overlay-color: rgba(0, 0, 0, 0.3);
 }
 
-/* 헤더 스타일 */
+/* 헤더 */
 .header {
-  position: absolute; /* 초기엔 슬라이드와 겹치도록 */
+  position: absolute;  /* 초기엔 슬라이더와 겹침 */
   top: 0;
   left: 0;
   width: 100%;
@@ -52,7 +52,7 @@ body {
   width: 100%;
 }
 .logo a {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #fff;
   transition: color var(--transition-speed);
@@ -88,7 +88,8 @@ body {
   color: var(--header-txt-color);
 }
 
-/* Hero 섹션 - 슬라이더 */
+/* Hero 섹션 (슬라이더) */
+/* 슬라이더와 헤더가 일체형: 헤더는 처음에는 absolute, 슬라이더는 100vh */
 .hero-slider {
   position: relative;
   width: 100%;
@@ -122,22 +123,24 @@ body {
   height: 100%;
   background: var(--overlay-color);
 }
-.slide-content {
+/* hero-content를 flex 컨테이너로 변경해 수평 및 수직 중앙 정렬 */
+.hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
-  margin: 0 auto;
-  top: 50%;
-  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  color: #fff;
+  padding: 0 20px;
+  width: 100%;
 }
-.slide-content h2 {
+.hero-content h2 {
   font-size: 48px;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
-.slide-content p {
+.hero-content p {
   font-size: 18px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
@@ -165,7 +168,7 @@ body {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* 콘텐츠 섹션 (스크롤 시 헤더와 분리되어 나타남) */
+/* 콘텐츠 섹션 */
 .content {
   padding: 80px 0;
   text-align: center;
@@ -205,11 +208,12 @@ body {
   color: #fff;
 }
 
-/* 플로팅 퀵메뉴 */
+/* 플로팅 퀵메뉴: 오른쪽 중앙 */
 .floating-buttons {
   position: fixed;
+  top: 50%;
   right: 20px;
-  bottom: 40px;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -240,7 +244,7 @@ body {
     position: fixed;
     top: var(--header-height);
     right: -100%;
-    background: rgba(34,34,34,0.9);
+    background: rgba(34, 34, 34, 0.9);
     width: 200px;
     height: calc(100vh - var(--header-height));
     transition: right var(--transition-speed);
@@ -259,10 +263,10 @@ body {
   .nav.show {
     right: 0;
   }
-  .slide-content h2 {
+  .hero-content h2 {
     font-size: 32px;
   }
-  .slide-content p {
+  .hero-content p {
     font-size: 16px;
   }
 }
