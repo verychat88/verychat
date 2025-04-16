@@ -1,10 +1,10 @@
 /**
- * 슬라이더(배너) 관련 스크립트
+ * 슬라이더 관련 스크립트
  */
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
-let slideInterval; // 자동 슬라이드 인터벌 변수
-const intervalTime = 4000; // 4초마다 슬라이드 전환
+let slideInterval; 
+const intervalTime = 4000;
 
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');
@@ -20,55 +20,46 @@ function showSlide(index) {
 }
 
 function nextSlide() {
-  currentSlide++;
-  if (currentSlide >= slides.length) {
-    currentSlide = 0;
-  }
-  showSlide(currentSlide);
-}
-function prevSlide() {
-  currentSlide--;
-  if (currentSlide < 0) {
-    currentSlide = slides.length - 1;
-  }
+  currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
 }
 
-// 자동 재생 시작
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
 function startSlide() {
   slideInterval = setInterval(nextSlide, intervalTime);
 }
-// 자동 재생 정지
+
 function stopSlide() {
   clearInterval(slideInterval);
 }
 
-// 초기 슬라이드 설정
 showSlide(currentSlide);
 startSlide();
 
-// 버튼 이벤트
 nextBtn.addEventListener('click', () => {
   stopSlide();
   nextSlide();
   startSlide();
 });
+
 prevBtn.addEventListener('click', () => {
   stopSlide();
   prevSlide();
   startSlide();
 });
+
 pauseBtn.addEventListener('click', () => {
-  // 일시정지/재생 기능 토글
   const icon = pauseBtn.querySelector('i');
   if (icon.classList.contains('fa-pause')) {
     stopSlide();
-    icon.classList.remove('fa-pause');
-    icon.classList.add('fa-play');
+    icon.classList.replace('fa-pause', 'fa-play');
   } else {
     startSlide();
-    icon.classList.remove('fa-play');
-    icon.classList.add('fa-pause');
+    icon.classList.replace('fa-play', 'fa-pause');
   }
 });
 
