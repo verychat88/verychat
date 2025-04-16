@@ -163,7 +163,7 @@ body {
   line-height: 1.4;
 }
 
-/* ===== 회사 소개 ===== */
+/* ===== 서비스 소개 ===== */
 .intro-content {
   display: flex;
   flex-wrap: wrap;
@@ -404,7 +404,7 @@ body {
   }
 }
 
-/* 슬라이드가 높이가 너무 작아지지 않도록 최소 높이 설정 */
+/* 슬라이드 최소 높이 (모바일 보정) */
 @media (max-width: 768px) {
   .slider-container {
     height: 50vh;
