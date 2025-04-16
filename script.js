@@ -64,7 +64,7 @@ if (pauseBtn) {
   });
 }
 
-/* 모바일 메뉴 토글 */
+// 모바일 햄버거 메뉴 토글
 const hamburger = document.getElementById('hamburger');
 const navbar = document.getElementById('navbar');
 if (hamburger) {
@@ -73,16 +73,17 @@ if (hamburger) {
   });
 }
 
-/* 스크롤 이벤트: 헤더 분리 효과 */
+// 스크롤 이벤트: 헤더 분리 효과
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
-  // 스크롤이 100px 이상이면 헤더에 .scrolled 클래스 부여
+  // 스크롤이 100px 이상이면 .scrolled 클래스 추가
   if (window.scrollY > 100) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
 });
+
 
 
 // 모달 (승강기 검사 및 법령 상세 내용)
