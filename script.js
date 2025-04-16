@@ -64,7 +64,7 @@ if (pauseBtn) {
   });
 }
 
-// 모바일 햄버거 메뉴 토글
+/* 모바일 메뉴 토글 */
 const hamburger = document.getElementById('hamburger');
 const navbar = document.getElementById('navbar');
 if (hamburger) {
@@ -73,15 +73,17 @@ if (hamburger) {
   });
 }
 
-// 스크롤 이벤트로 헤더 배경 전환 (슬라이더 위에 있을 때는 투명, 스크롤 내리면 불투명)
+/* 스크롤 이벤트: 헤더 분리 효과 */
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {  // 스크롤 위치가 50px 이상이면
+  // 스크롤이 100px 이상이면 헤더에 .scrolled 클래스 부여
+  if (window.scrollY > 100) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
 });
+
 
 // 모달 (승강기 검사 및 법령 상세 내용)
 const openLawModalBtn = document.getElementById('openLawModal');
