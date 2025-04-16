@@ -1,4 +1,4 @@
-/* 기본 리셋 및 폰트 설정 */
+/* 기본 초기화 */
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +10,8 @@ body {
   color: #333;
   line-height: 1.6;
 }
+
+/* 공통 컨테이너 */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -18,38 +20,51 @@ body {
 
 /* 색상 변수 */
 :root {
-  --header-bg: #1a1f71;      /* 다크 네이비 */
-  --accent-color: #00539c;   /* 세련된 블루 포인트 */
-  --btn-bg: var(--accent-color);
-  --btn-hover: #003d75;
-  --text-light: #f9f9f9;
+  --header-bg: #fff;         /* 스크롤 후 헤더 배경 색 */
+  --header-txt-color: #333;  /* 스크롤 후 헤더 글자 색 */
+  --header-h: 80px;          /* 헤더 높이 */
+  --transition: 0.4s;
+  --accent-color: #00539c;
+  --overlay-color: rgba(0,0,0,0.3);
 }
 
-/* 헤더 (초기 투명하게, 스크롤 시 배경 적용) */
+/* 헤더 */
 .header {
-  position: fixed;
+  position: absolute;  /* 처음엔 슬라이드와 완전히 겹치도록 absolute */
   top: 0;
   left: 0;
   width: 100%;
-  background: transparent;  /* 초기에는 투명 */
-  z-index: 1000;
-  transition: background 0.5s ease;
-  padding: 15px 0;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  background: transparent;  /* 초기엔 투명 */
+  transition: background var(--transition), box-shadow var(--transition);
 }
 .header.scrolled {
+  /* 스크롤 후 헤더 분리 효과 */
+  position: fixed;
   background: var(--header-bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 .header-container {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+/* 로고 & 메뉴 */
 .logo a {
-  color: var(--text-light);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
-  text-decoration: none;
+  color: #fff; /* 초기엔 슬라이드 위라서 흰색 */
+  transition: color var(--transition);
 }
+.header.scrolled .logo a {
+  color: var(--header-txt-color);
+}
+
 .nav ul {
   list-style: none;
   display: flex;
@@ -59,97 +74,72 @@ body {
   margin-left: 30px;
 }
 .nav ul li a {
-  color: var(--text-light);
-  text-decoration: none;
   font-size: 16px;
-  transition: color 0.3s;
+  color: #fff;  /* 초기엔 슬라이드 위라서 흰색 */
+  text-decoration: none;
+  transition: color var(--transition);
 }
-.nav ul li a:hover {
-  color: var(--accent-color);
+.header.scrolled .nav ul li a {
+  color: var(--header-txt-color);
 }
+
+/* 모바일 햄버거 버튼 */
 .hamburger {
   display: none;
   font-size: 24px;
-  color: var(--text-light);
+  color: #fff;
   cursor: pointer;
+  transition: color var(--transition);
+}
+.header.scrolled .hamburger {
+  color: var(--header-txt-color);
 }
 
-/* 슬라이더 (헤더와 일체형) */
-.hero-slider {
-  position: relative;
-  margin-top: 0; /* 헤더와 슬라이더가 함께 보이도록 */
-  height: 100vh;
-}
-.slider-container {
+/* 히어로(슬라이드) */
+.hero {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh; /* 화면 전체 높이 */
+  overflow: hidden;
 }
-.slide {
+.hero-slide {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  left: 100%;
-  top: 0;
   background-size: cover;
   background-position: center;
-  transition: left 0.8s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.slide.active {
-  left: 0;
 }
 .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--overlay-color);
 }
-.slide-content {
+.hero-content {
   position: relative;
-  max-width: 700px;
-  text-align: center;
-  color: var(--text-light);
   z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  top: 40%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #fff;
 }
-.slide-content h2 {
+.hero-content h2 {
   font-size: 48px;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
-.slide-content p {
+.hero-content p {
   font-size: 18px;
-  margin-bottom: 20px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
-.slider-controls {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-.btn-control {
-  background: rgba(0, 0, 0, 0.5);
-  color: var(--text-light);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.btn-control:hover {
-  background: rgba(0, 0, 0, 0.7);
-}
 
-/* 콘텐츠 (스크롤 시 아래에 분리되어 나오는 영역 예시) */
+/* 일반 콘텐츠 섹션 */
 .content {
   padding: 80px 0;
-  background: #fff;
   text-align: center;
 }
 .content h2 {
@@ -170,7 +160,7 @@ body {
   align-items: center;
 }
 .footer-logo {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
 }
 .footer-desc {
@@ -198,7 +188,7 @@ body {
   z-index: 1000;
 }
 .floating-btn {
-  background: var(--btn-bg);
+  background: var(--accent-color);
   color: #fff;
   padding: 12px 16px;
   border-radius: 50px;
@@ -210,22 +200,22 @@ body {
   transition: background 0.3s;
 }
 .floating-btn:hover {
-  background: var(--btn-hover);
+  background: #003d75;
 }
 .floating-btn i {
   margin-right: 8px;
 }
 
-/* 반응형 (모바일 메뉴 등) */
+/* 반응형 (모바일) */
 @media (max-width: 768px) {
   .nav {
     position: fixed;
-    top: 60px;
+    top: var(--header-h);
     right: -100%;
     background: rgba(34,34,34,0.9);
     width: 200px;
-    height: calc(100vh - 60px);
-    transition: right 0.3s;
+    height: calc(100vh - var(--header-h));
+    transition: right var(--transition);
     z-index: 1000;
   }
   .nav ul {
@@ -241,7 +231,10 @@ body {
   .nav.show {
     right: 0;
   }
-  .slider-container {
-    height: 50vh;
+  .hero-content h2 {
+    font-size: 32px;
+  }
+  .hero-content p {
+    font-size: 16px;
   }
 }
