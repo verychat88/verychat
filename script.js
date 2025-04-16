@@ -73,16 +73,16 @@ if (hamburger) {
   });
 }
 
-// 스크롤 이벤트: 헤더 분리 효과
+// 스크롤 이벤트: 헤더 분리 효과 (스크롤 100px 이상 시 헤더에 클래스 추가)
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
-  // 스크롤이 100px 이상이면 .scrolled 클래스 추가
   if (window.scrollY > 100) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
 });
+
 
 
 
