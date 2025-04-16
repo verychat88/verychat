@@ -3,35 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="메인페이지 - 헤더와 슬라이드 일체형 후 스크롤 시 분리">
-  <title>승강기 전문 솔루션 - 메인</title>
-  <!-- 구글 폰트 + Font Awesome -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-  <!-- 스타일 -->
+  <meta name="description" content="전문 승강기 유지보수 및 서비스 솔루션" />
+  <title>승강기 전문 솔루션 - 홈</title>
+  <!-- 구글 폰트 및 Font Awesome -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 공통 스타일 -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 헤더 (처음엔 슬라이드와 겹침, 스크롤 시 분리) -->
+  <!-- 공통 헤더 -->
   <header class="header" id="header">
     <div class="container header-container">
       <div class="logo">
-        <!-- 사이트 로고/명칭 -->
-        <a href="#">승강기 전문 솔루션</a>
+        <a href="index.html">승강기 전문 솔루션</a>
       </div>
       <nav class="nav" id="navbar">
         <ul>
-          <li><a href="#">회사소개</a></li>
-          <li><a href="#">서비스</a></li>
-          <li><a href="#">성공사례</a></li>
-          <li><a href="#">문의하기</a></li>
+          <li><a href="index.html">홈</a></li>
+          <li><a href="about.html">회사소개</a></li>
+          <li><a href="services.html">서비스</a></li>
+          <li><a href="projects.html">성공사례</a></li>
+          <li><a href="contact.html">문의하기</a></li>
         </ul>
       </nav>
       <div class="hamburger" id="hamburger">
@@ -40,40 +34,67 @@
     </div>
   </header>
 
-  <!-- 메인 슬라이드 (Hero) : 100vh 높이 -->
-  <section class="hero" id="hero">
-    <div class="hero-slide" style="background-image: url('https://verychat88.github.io/1.png');">
-      <!-- 첫 슬라이드 -->
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <h2>Leading Company</h2>
-        <p>내일을 준비하는 혁신적인 엘리베이터 서비스</p>
+  <!-- 메인 슬라이더 (Hero 영역) -->
+  <section class="hero-slider" id="home">
+    <div class="slider-container" id="sliderContainer">
+      <!-- 슬라이드 1 -->
+      <div class="slide active" style="background-image: url('https://via.placeholder.com/1920x900?text=Slide+1');">
+        <div class="overlay"></div>
+        <div class="slide-content">
+          <h2>신속한 현장 대응</h2>
+          <p>최첨단 유지보수 시스템으로 어떠한 문제도 빠르게 해결합니다.</p>
+        </div>
+      </div>
+      <!-- 슬라이드 2 -->
+      <div class="slide" style="background-image: url('https://via.placeholder.com/1920x900?text=Slide+2');">
+        <div class="overlay"></div>
+        <div class="slide-content">
+          <h2>전문 기술과 풍부한 경험</h2>
+          <p>다년간의 현장 경험을 바탕으로 안전과 신뢰를 제공합니다.</p>
+        </div>
+      </div>
+      <!-- 슬라이드 3 -->
+      <div class="slide" style="background-image: url('https://via.placeholder.com/1920x900?text=Slide+3');">
+        <div class="overlay"></div>
+        <div class="slide-content">
+          <h2>맞춤형 솔루션 제공</h2>
+          <p>각 고객사에 최적화된 서비스와 컨설팅을 제공해드립니다.</p>
+        </div>
       </div>
     </div>
-    <!-- 두 번째 슬라이드 (자동 슬라이드가 필요 없다면 생략 가능) -->
-    <!-- 
-    <div class="hero-slide" style="background-image: url('https://verychat88.github.io/2.png');">
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <h2>더 나은 승강기를 위하여</h2>
-        <p>최첨단 기술과 노하우를 결합한 토탈 솔루션</p>
-      </div>
+    <!-- 슬라이드 컨트롤 버튼 -->
+    <div class="slider-controls">
+      <button id="prevBtn" class="btn-control"><i class="fa fa-chevron-left"></i></button>
+      <button id="nextBtn" class="btn-control"><i class="fa fa-chevron-right"></i></button>
+      <button id="pauseBtn" class="btn-control"><i class="fa fa-pause"></i></button>
     </div>
-    -->
   </section>
 
-  <!-- 스크롤 후 나타나는 일반 콘텐츠 -->
-  <section class="content">
+  <!-- 주요 서비스 간략 소개 -->
+  <section class="features section">
     <div class="container">
-      <h2>Business area</h2>
-      <p>
-        스크롤을 내리면, 위의 슬라이드와 헤더가 분리되어 보이는 효과를 확인할 수 있습니다.
-        필요에 따라 이곳에 회사소개, 사업영역, etc.를 추가하세요.
-      </p>
+      <h2 class="section-title">주요 서비스</h2>
+      <div class="features-list">
+        <div class="feature-item">
+          <i class="fa-solid fa-screwdriver-wrench feature-icon"></i>
+          <h3>유지보수</h3>
+          <p>정기점검, 긴급출동, 부품 교체 등 전방위 서비스</p>
+        </div>
+        <div class="feature-item">
+          <i class="fa-solid fa-rotate feature-icon"></i>
+          <h3>교체공사</h3>
+          <p>노후 부품 교체 및 최신 설비 적용으로 안정성 확보</p>
+        </div>
+        <div class="feature-item">
+          <i class="fa-solid fa-wrench feature-icon"></i>
+          <h3>수리공사</h3>
+          <p>고장 진단 후 신속하고 정밀한 수리 서비스를 제공합니다.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 이하 하단 푸터 예시 -->
+  <!-- 공통 푸터 -->
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-left">
@@ -88,7 +109,7 @@
     </div>
   </footer>
 
-  <!-- 오른쪽 하단 퀵메뉴 (고객센터, 카톡 상담) -->
+  <!-- 플로팅 퀵메뉴 (고객센터, 카톡 상담) -->
   <div class="floating-buttons">
     <a href="tel:01058255626" class="floating-btn">
       <i class="fa-solid fa-phone"></i> 고객센터
@@ -98,7 +119,6 @@
     </a>
   </div>
 
-  <!-- 스크립트 -->
   <script src="script.js"></script>
 </body>
 </html>
