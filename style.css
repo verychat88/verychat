@@ -1,4 +1,4 @@
-/* 기본 초기화 */
+/* 기본 초기화 및 폰트 설정 */
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +10,6 @@ body {
   color: #333;
   line-height: 1.6;
 }
-
-/* 공통 컨테이너 */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -20,51 +18,48 @@ body {
 
 /* 색상 변수 */
 :root {
-  --header-bg: #fff;         /* 스크롤 후 헤더 배경 색 */
-  --header-txt-color: #333;  /* 스크롤 후 헤더 글자 색 */
-  --header-h: 80px;          /* 헤더 높이 */
-  --transition: 0.4s;
+  --header-bg: #fff;          /* 스크롤 후 헤더 배경색 */
+  --header-txt-color: #333;   /* 스크롤 후 헤더 텍스트 색 */
+  --header-height: 80px;
+  --transition-speed: 0.4s;
   --accent-color: #00539c;
   --overlay-color: rgba(0,0,0,0.3);
 }
 
-/* 헤더 */
+/* 헤더 스타일 */
 .header {
-  position: absolute;  /* 처음엔 슬라이드와 완전히 겹치도록 absolute */
+  position: absolute;  /* 초기엔 슬라이드와 겹치도록 */
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-h);
+  height: var(--header-height);
   display: flex;
   align-items: center;
   z-index: 999;
-  background: transparent;  /* 초기엔 투명 */
-  transition: background var(--transition), box-shadow var(--transition);
+  background: transparent;
+  transition: background var(--transition-speed), box-shadow var(--transition-speed);
+  padding: 15px 0;
 }
 .header.scrolled {
-  /* 스크롤 후 헤더 분리 효과 */
   position: fixed;
   background: var(--header-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 .header-container {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
-
-/* 로고 & 메뉴 */
 .logo a {
   font-size: 20px;
   font-weight: bold;
-  color: #fff; /* 초기엔 슬라이드 위라서 흰색 */
-  transition: color var(--transition);
+  color: #fff;
+  transition: color var(--transition-speed);
 }
 .header.scrolled .logo a {
   color: var(--header-txt-color);
 }
-
 .nav ul {
   list-style: none;
   display: flex;
@@ -75,41 +70,51 @@ body {
 }
 .nav ul li a {
   font-size: 16px;
-  color: #fff;  /* 초기엔 슬라이드 위라서 흰색 */
+  color: #fff;
   text-decoration: none;
-  transition: color var(--transition);
+  transition: color var(--transition-speed);
 }
 .header.scrolled .nav ul li a {
   color: var(--header-txt-color);
 }
-
-/* 모바일 햄버거 버튼 */
 .hamburger {
   display: none;
   font-size: 24px;
   color: #fff;
   cursor: pointer;
-  transition: color var(--transition);
+  transition: color var(--transition-speed);
 }
 .header.scrolled .hamburger {
   color: var(--header-txt-color);
 }
 
-/* 히어로(슬라이드) */
+/* 헤더, 슬라이드 일체형 효과를 위한 Hero 섹션 */
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* 화면 전체 높이 */
+  height: 100vh;
   overflow: hidden;
 }
-.hero-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
+.slider-container {
+  position: relative;
   width: 100%;
   height: 100%;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 100%;
+  top: 0;
   background-size: cover;
   background-position: center;
+  transition: left 0.8s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide.active {
+  left: 0;
 }
 .overlay {
   position: absolute;
@@ -122,7 +127,7 @@ body {
   z-index: 2;
   max-width: 700px;
   margin: 0 auto;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   text-align: center;
   color: #fff;
@@ -137,7 +142,30 @@ body {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-/* 일반 콘텐츠 섹션 */
+/* 슬라이더 컨트롤 (선택 사항) */
+.slider-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+.btn-control {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-control:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* 스크롤 후 나타나는 콘텐츠 */
 .content {
   padding: 80px 0;
   text-align: center;
@@ -200,22 +228,22 @@ body {
   transition: background 0.3s;
 }
 .floating-btn:hover {
-  background: #003d75;
+  background: var(--btn-hover);
 }
 .floating-btn i {
   margin-right: 8px;
 }
 
-/* 반응형 (모바일) */
+/* 반응형 */
 @media (max-width: 768px) {
   .nav {
     position: fixed;
-    top: var(--header-h);
+    top: var(--header-height);
     right: -100%;
     background: rgba(34,34,34,0.9);
     width: 200px;
-    height: calc(100vh - var(--header-h));
-    transition: right var(--transition);
+    height: calc(100vh - var(--header-height));
+    transition: right var(--transition-speed);
     z-index: 1000;
   }
   .nav ul {
