@@ -18,21 +18,26 @@ body {
 
 /* 색상 변수 */
 :root {
-  --header-bg: #1a1f71;
-  --accent-color: #00539c;
+  --header-bg: #1a1f71;      /* 다크 네이비 */
+  --accent-color: #00539c;   /* 세련된 블루 포인트 */
   --btn-bg: var(--accent-color);
   --btn-hover: #003d75;
   --text-light: #f9f9f9;
 }
 
-/* 헤더 및 네비게이션 */
+/* 헤더 (초기 투명하게, 스크롤 시 배경 적용) */
 .header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  background: var(--header-bg);
-  z-index: 999;
+  background: transparent;  /* 초기에는 투명 */
+  z-index: 1000;
+  transition: background 0.5s ease;
   padding: 15px 0;
+}
+.header.scrolled {
+  background: var(--header-bg);
 }
 .header-container {
   display: flex;
@@ -69,16 +74,16 @@ body {
   cursor: pointer;
 }
 
-/* 슬라이더 */
+/* 슬라이더 (헤더와 일체형) */
 .hero-slider {
   position: relative;
-  margin-top: 60px;
-  overflow: hidden;
+  margin-top: 0; /* 헤더와 슬라이더가 함께 보이도록 */
+  height: 100vh;
 }
 .slider-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 .slide {
   position: absolute;
@@ -100,7 +105,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
 }
 .slide-content {
   position: relative;
@@ -128,7 +133,7 @@ body {
   z-index: 10;
 }
 .btn-control {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: var(--text-light);
   border: none;
   width: 40px;
@@ -138,105 +143,18 @@ body {
   transition: background 0.3s;
 }
 .btn-control:hover {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 
-/* 섹션 공통 스타일 */
-.section {
+/* 콘텐츠 (스크롤 시 아래에 분리되어 나오는 영역 예시) */
+.content {
   padding: 80px 0;
-  text-align: center;
-}
-.section-title {
-  font-size: 32px;
-  margin-bottom: 30px;
-  font-weight: 700;
-  position: relative;
-}
-.section-title::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: var(--accent-color);
-  margin: 20px auto 0;
-}
-.section-subtitle {
-  font-size: 18px;
-  margin-bottom: 50px;
-  color: #666;
-}
-
-/* 서비스 및 기능 아이템 */
-.features-list, .service-items, .business-list, .projects-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-.feature-item, .service-item, .business-item, .project-card {
-  background: #f4f4f4;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  flex: 1 1 250px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.feature-item:hover, .service-item:hover, .business-item:hover, .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.feature-icon, .service-icon, .business-icon {
-  font-size: 36px;
-  margin-bottom: 15px;
-  color: var(--accent-color);
-}
-
-/* 유리관리 */
-.glass-content {
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.8;
-  text-align: left;
-}
-.glass-content ul {
-  margin-top: 20px;
-  padding-left: 20px;
-  list-style: disc;
-}
-
-/* 모달 스타일 */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0,0,0,0.5);
-  align-items: center;
-  justify-content: center;
-}
-.modal-content {
   background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 800px;
-  max-height: 80%;
-  overflow-y: auto;
-  position: relative;
+  text-align: center;
 }
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: var(--btn-bg);
-  border: none;
-  color: #fff;
-  padding: 5px 10px;
-  cursor: pointer;
+.content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 /* 푸터 */
@@ -298,12 +216,7 @@ body {
   margin-right: 8px;
 }
 
-/* 반응형 */
-@media (max-width: 992px) {
-  .features-list, .service-items, .business-list, .projects-grid {
-    flex-direction: column;
-  }
-}
+/* 반응형 (모바일 메뉴 등) */
 @media (max-width: 768px) {
   .nav {
     position: fixed;
