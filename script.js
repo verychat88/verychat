@@ -1,5 +1,5 @@
 /**
- * 슬라이더 관련 스크립트
+ * 슬라이더(배너) 관련 스크립트
  */
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
@@ -64,7 +64,7 @@ pauseBtn.addEventListener('click', () => {
 });
 
 /**
- * 모바일 햄버거 메뉴
+ * 모바일 햄버거 메뉴 토글
  */
 const hamburger = document.getElementById('hamburger');
 const navbar = document.getElementById('navbar');
@@ -73,11 +73,13 @@ hamburger.addEventListener('click', () => {
 });
 
 /**
- * 문의 폼 제출 이벤트
+ * 견적 요청 폼 제출 이벤트
+ * (실제 운영 시 Formspree, Netlify Forms 등 서버리스 솔루션으로 연동하여 droes@naver.com으로 전송)
  */
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  alert('문의가 정상적으로 접수되었습니다. 빠른 시일 내에 연락 드리겠습니다.');
+  // 폼 제출 후 이메일 전송 처리 로직(서비스 연동 필요)
+  alert('문의 및 견적 요청이 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
   contactForm.reset();
 });
