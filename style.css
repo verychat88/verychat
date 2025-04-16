@@ -6,9 +6,9 @@
 }
 body {
   font-family: 'Noto Sans KR', sans-serif;
-  color: #333;
   background: #fff;
   line-height: 1.6;
+  color: #333;
 }
 
 /* ★ 공통 컨테이너 ★ */
@@ -18,12 +18,13 @@ body {
   margin: 0 auto;
 }
 
-/* ★ 색상 및 변수 (전문적이고 차분한 느낌) ★ */
+/* ★ 색상 변수 (고급스러운 다크 네이비 & 세련된 블루) ★ */
 :root {
-  --header-bg: #002147;        /* 다크 네이비 */
-  --accent-color: #00539C;       /* 세련된 블루 포인트 */
+  --header-bg: #1a1f71;
+  --accent-color: #00539c;
   --btn-bg: var(--accent-color);
   --btn-hover: #003d75;
+  --text-light: #f9f9f9;
 }
 
 /* ★ 헤더 & 네비게이션 ★ */
@@ -41,7 +42,7 @@ body {
   padding: 15px 0;
 }
 .logo a {
-  color: #fff;
+  color: var(--text-light);
   font-size: 22px;
   font-weight: bold;
   text-decoration: none;
@@ -55,7 +56,7 @@ body {
   margin-left: 30px;
 }
 .nav ul li a {
-  color: #fff;
+  color: var(--text-light);
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s;
@@ -65,7 +66,7 @@ body {
 }
 .hamburger {
   display: none;
-  color: #fff;
+  color: var(--text-light);
   font-size: 24px;
   cursor: pointer;
 }
@@ -73,7 +74,7 @@ body {
 /* ★ 메인 비주얼 (슬라이더) ★ */
 .hero-slider {
   position: relative;
-  margin-top: 60px; /* 헤더 높이 만큼 */
+  margin-top: 60px;
   overflow: hidden;
 }
 .slider-container {
@@ -101,24 +102,24 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
 }
 .slide-content {
   position: relative;
   max-width: 700px;
   text-align: center;
-  color: #fff;
+  color: var(--text-light);
   z-index: 2;
 }
 .slide-content h2 {
   font-size: 48px;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 .slide-content p {
   font-size: 18px;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 .slider-controls {
   position: absolute;
@@ -129,8 +130,8 @@ body {
   gap: 10px;
 }
 .btn-control {
-  background: rgba(0,0,0,0.5);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--text-light);
   border: none;
   width: 40px;
   height: 40px;
@@ -139,7 +140,7 @@ body {
   transition: background 0.3s;
 }
 .btn-control:hover {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 /* ★ 섹션 공통 스타일 ★ */
@@ -222,7 +223,7 @@ body {
   padding-left: 20px;
 }
 
-/* ★ 승강기 검사 법령 ★ */
+/* ★ 승강기 검사 & 법령 ★ */
 .law {
   background: #fafafa;
 }
@@ -252,7 +253,7 @@ body {
   flex-direction: column;
 }
 .project-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 .project-card img {
   width: 100%;
@@ -270,7 +271,7 @@ body {
   color: #555;
 }
 
-/* ★ 문의 ★ */
+/* ★ 견적/문의 폼 ★ */
 .contact-info {
   text-align: center;
   margin-bottom: 30px;
@@ -282,13 +283,21 @@ body {
 #contactForm {
   max-width: 600px;
   margin: 0 auto;
+}
+#contactForm .form-group {
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 }
+#contactForm label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
 #contactForm input,
+#contactForm select,
 #contactForm textarea {
   padding: 15px;
-  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
@@ -337,7 +346,7 @@ body {
   color: #fff;
 }
 
-/* ★ 오른쪽 하단 플로팅 버튼 ★ */
+/* ★ 오른쪽 하단 플로팅 퀵메뉴 ★ */
 .floating-buttons {
   position: fixed;
   right: 20px;
@@ -356,7 +365,7 @@ body {
   border-radius: 50px;
   text-decoration: none;
   font-size: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background 0.3s;
 }
 .floating-btn:hover {
@@ -401,17 +410,6 @@ body {
   }
   .nav.show {
     right: 0;
-  }
-  .business-list {
-    flex-direction: column;
-    align-items: center;
-  }
-  .business-item {
-    flex: 1 1 100%;
-    margin: 10px 0;
-  }
-  .projects-grid {
-    flex-direction: column;
   }
 }
 @media (max-width: 768px) {
