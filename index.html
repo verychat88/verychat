@@ -1,132 +1,254 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="천안 및 아산 지역 엘리베이터 유지보수 서비스 - 빠른 출동, 정밀한 서비스, 고객 맞춤 계약">
-  <title>천안 엘리베이터 유지보수 서비스</title>
-  <!-- Google Fonts (예: Noto Sans KR) -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 아이콘 (무료 CDN) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="엘리베이터 유지보수, 유리관리, 승강기 검사 법령, 주요 프로젝트, 문의 등 전문 서비스 소개">
+  <title>우수 엘리베이터 서비스</title>
+  <!-- 구글 폰트 및 아이콘 (원하는 것으로 교체 가능) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- 스타일 시트 -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
+  <!-- ===== 헤더 영역 ===== -->
+  <header class="header" id="header">
     <div class="container header-container">
       <div class="logo">
-        <a href="#">엘리베이터 Pro</a>
+        <a href="#home">WOOSUNG ELEVATOR</a>
       </div>
-      <nav class="nav" id="nav-menu">
+      <nav class="nav" id="navbar">
         <ul>
-          <li><a href="#hero">홈</a></li>
-          <li><a href="#services">서비스</a></li>
-          <li><a href="#contracts">계약 종류</a></li>
-          <li><a href="#testimonials">후기</a></li>
+          <li><a href="#intro">회사소개</a></li>
+          <li><a href="#business">사업영역</a></li>
+          <li><a href="#glass">유리관리</a></li>
+          <li><a href="#law">승강기검사법령</a></li>
+          <li><a href="#projects">주요 프로젝트</a></li>
           <li><a href="#contact">문의하기</a></li>
         </ul>
       </nav>
+      <!-- 모바일용 햄버거 버튼 -->
       <div class="hamburger" id="hamburger">
         <i class="fa fa-bars"></i>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <h1 class="hero-title">신속한 출동, 믿을 수 있는 엘리베이터 유지보수</h1>
-      <p class="hero-sub">천안/아산 지역 전문 서비스 – 고객 맞춤 계약으로 안전을 보장합니다.</p>
-      <a href="#contact" class="btn hero-btn">지금 바로 문의하기</a>
+  <!-- ===== 메인 비주얼 (슬라이드 배너) ===== -->
+  <section class="hero-slider" id="home">
+    <div class="slider-container" id="sliderContainer">
+      <!-- 슬라이드 1 -->
+      <div class="slide active"
+        style="background-image: url('https://via.placeholder.com/1920x900?text=Elevator+Slide+1');">
+        <div class="overlay"></div>
+        <div class="slide-content">
+          <h2>내일을 준비하는 Leading Company</h2>
+          <p>빠르고 안전한 승강기 서비스, 미래를 함께 열어갑니다.</p>
+        </div>
+      </div>
+      <!-- 슬라이드 2 -->
+      <div class="slide"
+        style="background-image: url('https://via.placeholder.com/1920x900?text=Elevator+Slide+2');">
+        <div class="overlay"></div>
+        <div class="slide-content">
+          <h2>우수한 기술력과 축적된 노하우</h2>
+          <p>정기점검, 공사, 유지보수 등 고객 맞춤형 솔루션</p>
+        </div>
+      </div>
+      <!-- 슬라이드 3 -->
+      <div class="slide"
+        style="background-image: url('https://via.placeholder.com/1920x900?text=Elevator+Slide+3');">
+        <div class="overlay"></div>
+        <div class="slide-content">
+          <h2>파트너십으로 함께 성장</h2>
+          <p>신속한 대응과 체계적 관리로 안전 가치를 높입니다.</p>
+        </div>
+      </div>
+    </div>
+    <!-- 슬라이드 컨트롤 버튼 -->
+    <div class="slider-controls">
+      <button id="prevBtn" class="btn-control"><i class="fa fa-chevron-left"></i></button>
+      <button id="nextBtn" class="btn-control"><i class="fa fa-chevron-right"></i></button>
+      <button id="pauseBtn" class="btn-control"><i class="fa fa-pause"></i></button>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="services section">
+  <!-- ===== 회사 소개 ===== -->
+  <section class="intro section" id="intro">
     <div class="container">
-      <h2 class="section-title">서비스 소개</h2>
-      <div class="services-list">
-        <div class="service-item">
-          <i class="fa-solid fa-truck-fast service-icon"></i>
-          <h3>긴급출동</h3>
-          <p>고장 신고 후 1시간 내 현장 도착, 신속한 문제 해결</p>
+      <h2 class="section-title">회사소개</h2>
+      <div class="intro-content">
+        <div class="intro-text">
+          <p>
+            WOOSUNG ELEVATOR는 오랜 역사와 뛰어난 기술력으로
+            엘리베이터 유지보수, 설치, 리모델링, 유리관리 등에 앞장서 왔습니다.
+            고객 안전을 최우선 가치로 삼으며, 전문 인력을 통한 체계적인 서비스를 제공합니다.
+          </p>
+          <p>
+            국내외 다양한 인증과 특허를 보유하고 있으며,  
+            신속한 대응 및 책임 있는 사후관리로 고객 만족을 극대화합니다.
+          </p>
         </div>
-        <div class="service-item">
-          <i class="fa-solid fa-screwdriver-wrench service-icon"></i>
-          <h3>정기 유지보수</h3>
-          <p>정기 점검과 보수 계약으로 문제 예방 및 안전 관리</p>
+        <img
+          src="https://via.placeholder.com/600x400?text=Company+Image"
+          alt="회사 이미지"
+          class="intro-image"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 사업 영역 ===== -->
+  <section class="business section" id="business">
+    <div class="container">
+      <h2 class="section-title">Business Area</h2>
+      <p class="section-subtitle">승강기의 모든 단계에서<br>고품질 솔루션을 제공합니다.</p>
+      <div class="business-list">
+        <div class="business-item">
+          <div class="business-icon">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h3>유지보수</h3>
+          <p>정기점검, 긴급출동, 부품 교체 등의 토탈 유지보수 서비스</p>
         </div>
-        <div class="service-item">
-          <i class="fa-solid fa-rotate service-icon"></i>
-          <h3>교체/리모델링</h3>
-          <p>노후된 부품 교체 및 구조 개선으로 최신 안전 기준 준수</p>
+        <div class="business-item">
+          <div class="business-icon">
+            <i class="fa-solid fa-rotate"></i>
+          </div>
+          <h3>리모델링</h3>
+          <p>노후 엘리베이터 개선 공사, 성능 향상 및 안전 강화 솔루션</p>
+        </div>
+        <div class="business-item">
+          <div class="business-icon">
+            <i class="fa-solid fa-building"></i>
+          </div>
+          <h3>신규 설치</h3>
+          <p>다양한 건물에 맞춘 승강기 설계, 시공, 설치 프로젝트 전 과정을 수행</p>
+        </div>
+        <div class="business-item">
+          <div class="business-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3>안전 컨설팅</h3>
+          <p>법정 검사 및 안전 인증 컨설팅으로 승강기 운행의 신뢰도 향상</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contracts Section -->
-  <section id="contracts" class="contracts section">
+  <!-- ===== 유리관리 ===== -->
+  <section class="glass section" id="glass">
     <div class="container">
-      <h2 class="section-title">유지보수 계약 종류</h2>
-      <div class="contracts-list">
-        <div class="contract-item">
-          <h3>부품 고장 유상 계약</h3>
-          <p>엘리베이터 주요 부품 이상 발생 시, 교체 및 수리 비용이 발생하는 계약</p>
+      <h2 class="section-title">유리관리</h2>
+      <div class="glass-content">
+        <p>
+          엘리베이터 내부 유리는 승객들에게 보다 쾌적하고 현대적인 이미지를 제공합니다.
+          하지만 외부 충격이나 먼지 등으로 인한 스크래치, 오염이 쉽게 발생합니다.  
+          WOOSUNG ELEVATOR의 유리관리 솔루션은 전문 장비와 약품을 활용해  
+          유리를 항상 깨끗하고 안전하게 유지하도록 돕습니다.
+        </p>
+        <ul>
+          <li>정기 유리 청소 서비스</li>
+          <li>오염/스크래치 복원 작업</li>
+          <li>안전 강화 필름 시공</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 승강기 검사 법령 ===== -->
+  <section class="law section" id="law">
+    <div class="container">
+      <h2 class="section-title">승강기검사법령</h2>
+      <p>
+        승강기 안전관리법에 따라 승강기 설치 및 운행에 대한 법정 검사가 주기적으로 시행됩니다.
+        WOOSUNG ELEVATOR는 법령에 맞추어 정기점검과 적합성 평가를 수행하며,
+        모든 고객사의 승강기가 안전 기준을 충족할 수 있도록 지원합니다.
+      </p>
+      <div class="law-details">
+        <h3>주요 법령 안내</h3>
+        <ul>
+          <li>승강기 안전관리법</li>
+          <li>건축물 관리법 및 건축법 시행령</li>
+          <li>한국승강기안전공단(KESI) 기술기준</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 주요 프로젝트 ===== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <h2 class="section-title">주요 프로젝트</h2>
+      <p class="section-subtitle">WOOSUNG ELEVATOR가 진행한 대표적 설치/리모델링 사례</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x300?text=Project+1" alt="프로젝트1" />
+          <h3 class="project-title">상업시설 리모델링</h3>
+          <p class="project-desc">
+            대형 쇼핑몰 엘리베이터 리모델링 공사 진행 (2023년)
+          </p>
         </div>
-        <div class="contract-item">
-          <h3>부품 고장 무상 계약</h3>
-          <p>특정 부품에 한해 고장이 발생하더라도 무상으로 수리 또는 교체를 진행</p>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x300?text=Project+2" alt="프로젝트2" />
+          <h3 class="project-title">오피스텔 신축 설치</h3>
+          <p class="project-desc">
+            오피스텔 2동 엘리베이터 신규 설계 및 설치 (2024년)
+          </p>
         </div>
-        <div class="contract-item">
-          <h3>공사건 유상 계약</h3>
-          <p>정기 유지보수 외의 별도 공사 건에 한해 비용이 청구되는 계약 방식</p>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x300?text=Project+3" alt="프로젝트3" />
+          <h3 class="project-title">아파트 단지 유지보수</h3>
+          <p class="project-desc">
+            500세대 규모 아파트 승강기 정기점검 및 유지보수 (2025년)
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="testimonials section">
+  <!-- ===== 문의하기 ===== -->
+  <section class="contact section" id="contact">
     <div class="container">
-      <h2 class="section-title">고객 후기</h2>
-      <div class="testimonials-list">
-        <div class="testimonial-item">
-          <p class="testimonial-text">"긴급상황에서도 신속하게 대응해주어 믿고 계약할 수 있었습니다. 정말 만족합니다!"</p>
-          <h4 class="testimonial-author">- 박모씨, 상가 운영자</h4>
-        </div>
-        <div class="testimonial-item">
-          <p class="testimonial-text">"정기 점검 덕분에 큰 사고 없이 운영할 수 있어 매우 안심됩니다."</p>
-          <h4 class="testimonial-author">- 김모씨, 아파트 관리사무소</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact section">
-    <div class="container">
-      <h2 class="section-title">문의 및 견적 요청</h2>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">빠른 상담을 위해 아래 정보를 입력해주세요.</p>
       <div class="contact-info">
-        <p><i class="fa-solid fa-phone"></i> 전화: <a href="tel:01012345678">010-1234-5678</a></p>
-        <p><i class="fa-solid fa-comment"></i> 카카오톡: <a href="#">카톡 상담 바로가기</a></p>
+        <p>
+          <i class="fa-solid fa-phone"></i> Tel : 
+          <a href="tel:02-1234-5678">02-1234-5678</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-envelope"></i> Email :
+          <a href="mailto:info@woosung.co.kr">info@woosung.co.kr</a>
+        </p>
       </div>
-      <form id="contactForm" action="https://formspree.io/f/{your_form_id}" method="POST">
-        <input type="text" name="name" placeholder="이름" required>
-        <input type="email" name="email" placeholder="이메일" required>
-        <textarea name="message" rows="5" placeholder="문의 내용을 입력해주세요." required></textarea>
-        <button type="submit" class="btn">문의하기</button>
+      <form id="contactForm" action="#" method="POST">
+        <input type="text" name="name" placeholder="이름" required />
+        <input type="email" name="email" placeholder="이메일" required />
+        <textarea name="message" rows="5" placeholder="문의 사항을 작성해주세요." required></textarea>
+        <button type="submit" class="btn btn-primary">문의하기</button>
       </form>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== 하단 푸터 ===== -->
   <footer class="footer">
     <div class="container footer-container">
-      <p>&copy; 2025 엘리베이터 Pro. All rights reserved.</p>
-      <div class="social-links">
+      <div class="footer-left">
+        <p class="footer-logo">WOOSUNG ELEVATOR</p>
+        <p class="footer-desc">
+          &copy; 2025 Woosung IDS Elevator. All rights reserved.
+        </p>
+      </div>
+      <div class="footer-right">
         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
         <a href="#"><i class="fa-brands fa-youtube"></i></a>
@@ -134,6 +256,12 @@
     </div>
   </footer>
 
+  <!-- ===== 오른쪽 하단 고정 문의 버튼 ===== -->
+  <a href="#contact" class="floating-btn" id="floatingBtn">
+    <i class="fa-solid fa-comment-dots"></i> 문의하기
+  </a>
+
+  <!-- 자바스크립트 -->
   <script src="script.js"></script>
 </body>
 </html>
