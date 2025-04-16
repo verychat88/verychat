@@ -18,17 +18,17 @@ body {
 
 /* 색상 변수 */
 :root {
-  --header-bg: #fff;          /* 스크롤 후 헤더 배경색 */
-  --header-txt-color: #333;   /* 스크롤 후 헤더 텍스트 색 */
+  --header-bg: #fff;          /* 스크롤 시 헤더 배경색 */
+  --header-txt-color: #333;   /* 스크롤 시 헤더 텍스트 색 */
   --header-height: 80px;
   --transition-speed: 0.4s;
   --accent-color: #00539c;
-  --overlay-color: rgba(0,0,0,0.3);
+  --overlay-color: rgba(0, 0, 0, 0.3);
 }
 
 /* 헤더 스타일 */
 .header {
-  position: absolute;  /* 초기엔 슬라이드와 겹치도록 */
+  position: absolute; /* 초기엔 슬라이드와 겹치도록 */
   top: 0;
   left: 0;
   width: 100%;
@@ -43,7 +43,7 @@ body {
 .header.scrolled {
   position: fixed;
   background: var(--header-bg);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 .header-container {
   display: flex;
@@ -88,8 +88,8 @@ body {
   color: var(--header-txt-color);
 }
 
-/* 헤더, 슬라이드 일체형 효과를 위한 Hero 섹션 */
-.hero {
+/* Hero 섹션 - 슬라이더 */
+.hero-slider {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -122,7 +122,7 @@ body {
   height: 100%;
   background: var(--overlay-color);
 }
-.hero-content {
+.slide-content {
   position: relative;
   z-index: 2;
   max-width: 700px;
@@ -132,17 +132,17 @@ body {
   text-align: center;
   color: #fff;
 }
-.hero-content h2 {
+.slide-content h2 {
   font-size: 48px;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
-.hero-content p {
+.slide-content p {
   font-size: 18px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-/* 슬라이더 컨트롤 (선택 사항) */
+/* 슬라이더 컨트롤 */
 .slider-controls {
   position: absolute;
   bottom: 20px;
@@ -152,7 +152,7 @@ body {
   z-index: 10;
 }
 .btn-control {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
   width: 40px;
@@ -162,10 +162,10 @@ body {
   transition: background 0.3s;
 }
 .btn-control:hover {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 
-/* 스크롤 후 나타나는 콘텐츠 */
+/* 콘텐츠 섹션 (스크롤 시 헤더와 분리되어 나타남) */
 .content {
   padding: 80px 0;
   text-align: center;
@@ -259,10 +259,10 @@ body {
   .nav.show {
     right: 0;
   }
-  .hero-content h2 {
+  .slide-content h2 {
     font-size: 32px;
   }
-  .hero-content p {
+  .slide-content p {
     font-size: 16px;
   }
 }
