@@ -1,16 +1,14 @@
-/* Reset 일부 */
+/* Reset 및 기본 설정 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* 기본 폰트 및 배경 */
 body {
-  font-family: 'Helvetica', 'Apple SD Gothic Neo', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   line-height: 1.6;
   color: #333;
-  background: #f9f9f9;
+  background: #fff;
 }
 
 /* Container */
@@ -18,93 +16,147 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 0;
 }
 
-/* Header 스타일 */
+/* Header */
 .header {
-  background: #222;
-  color: #fff;
-  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  background: rgba(34, 34, 34, 0.9);
+  z-index: 1000;
+  padding: 15px 0;
+  transition: background 0.3s;
 }
-.header h1 {
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo a {
   font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
 }
 .nav ul {
   list-style: none;
   display: flex;
-  justify-content: flex-end;
 }
 .nav ul li {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .nav ul li a {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+  transition: color 0.3s;
+}
+.nav ul li a:hover {
+  color: #007aff;
 }
 
-/* Banner 스타일 */
-.banner {
-  background: url('https://via.placeholder.com/1600x600') center center/cover no-repeat;
+/* 햄버거 메뉴 (모바일) */
+.hamburger {
+  display: none;
   color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('https://via.placeholder.com/1600x900') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 34, 34, 0.5);
+}
+.hero-content {
+  position: relative;
   text-align: center;
-  padding: 120px 20px;
+  color: #fff;
+  z-index: 1;
+  animation: fadeIn 1.2s ease-out;
 }
-.banner h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-.banner p {
-  font-size: 20px;
+.hero-title {
+  font-size: 48px;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
-.btn {
-  display: inline-block;
+.hero-sub {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.hero-btn {
+  padding: 12px 30px;
   background: #007aff;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 4px;
+  border: none;
+  border-radius: 30px;
   text-decoration: none;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+.hero-btn:hover {
+  background: #005bb5;
+}
+
+/* Section 공통 스타일 */
+.section {
+  padding: 80px 0;
+}
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #007aff;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Services Section */
-.services {
-  background: #fff;
-  padding: 60px 20px;
-}
-.services h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 32px;
-}
-.service-list {
+.services-list {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 .service-item {
   flex: 1 1 300px;
-  background: #f1f1f1;
+  background: #f4f4f4;
   margin: 10px;
-  padding: 20px;
-  border-radius: 4px;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s;
 }
-.service-item h3 {
-  margin-bottom: 10px;
+.service-item:hover {
+  transform: translateY(-5px);
+}
+.service-icon {
+  font-size: 40px;
+  color: #007aff;
+  margin-bottom: 20px;
 }
 
 /* Contracts Section */
-.contracts {
-  padding: 60px 20px;
-  background: #fafafa;
-}
-.contracts h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 32px;
-}
-.contract-list {
+.contracts-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -114,26 +166,49 @@ body {
   background: #fff;
   border: 1px solid #ddd;
   margin: 10px;
-  padding: 20px;
-  border-radius: 4px;
+  padding: 30px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s;
+}
+.contract-item:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .contract-item h3 {
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Testimonials Section */
+.testimonials-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.testimonial-item {
+  flex: 1 1 400px;
+  background: #f9f9f9;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 8px;
+  position: relative;
+  font-style: italic;
+}
+.testimonial-text {
+  margin-bottom: 15px;
+}
+.testimonial-author {
+  text-align: right;
+  font-weight: bold;
 }
 
 /* Contact Section */
-.contact {
-  background: #fff;
-  padding: 60px 20px;
-}
-.contact h2 {
+.contact-info {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 32px;
+  margin-bottom: 30px;
+  font-size: 18px;
 }
-.contact-info p {
-  text-align: center;
-  margin-bottom: 10px;
+.contact-info i {
+  margin-right: 8px;
 }
 #contactForm {
   max-width: 600px;
@@ -143,43 +218,77 @@ body {
 }
 #contactForm input,
 #contactForm textarea {
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
 }
 #contactForm button {
-  padding: 10px;
+  padding: 15px;
   background: #007aff;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   font-size: 18px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+#contactForm button:hover {
+  background: #005bb5;
 }
 
-/* Footer Section */
+/* Footer */
 .footer {
   background: #222;
   color: #fff;
+  padding: 30px 0;
   text-align: center;
-  padding: 20px 0;
-  font-size: 14px;
+}
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.social-links a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: #007aff;
 }
 
-/* 반응형 처리 */
+/* 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 반응형 */
 @media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    background: rgba(34,34,34,0.95);
+    width: 200px;
+    height: calc(100vh - 60px);
+    transition: right 0.3s;
+    z-index: 999;
+  }
   .nav ul {
     flex-direction: column;
-    align-items: center;
+    padding: 20px;
   }
   .nav ul li {
-    margin: 10px 0;
+    margin: 20px 0;
   }
-  .service-list,
-  .contract-list {
-    flex-direction: column;
-    align-items: center;
+  .hamburger {
+    display: block;
   }
+}
+.nav.active {
+  right: 0;
 }
